@@ -1,0 +1,56 @@
+.bg-container {
+  height: 100vh;
+  width: 100vw;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  align-items: center;
+}
+.container {
+  display: flex;
+}
+
+.comment-container {
+  display: flex;
+  flex-direction: column;
+  margin-right: 50px;
+}
+.input-element {
+  width: 200px;
+  padding: 5px;
+  cursor: pointer;
+  outline: none;
+  margin-bottom: 10px;
+}
+.text-area {
+  width: 200px;
+  padding: 5px;
+  cursor: pointer;
+  outline: none;
+  margin-bottom: 10px;
+}
+.add-comment-btn {
+  background-color: #0284c7;
+  color: white;
+  font-size: 8px;
+  width: 100px;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+}
+.comments-image {
+  width: 200px;
+}
+.divide-line {
+  width: 50%;
+}
+.count {
+  background-color: #0284c7;
+  color: white;
+  padding: 5px;
+  font-size: 8px;
+}
+.comments {
+  font-size: 12px;
+}
