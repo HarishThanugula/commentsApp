@@ -13,18 +13,6 @@ const CommentItem = props => {
     deleteComment(id)
   }
 
-  const starImage = isLike ? (
-    <img
-      src="https://assets.ccbp.in/frontend/react-js/comments-app/like-img.png"
-      alt="like"
-    />
-  ) : (
-    <img
-      src="https://assets.ccbp.in/frontend/react-js/comments-app/liked-img.png"
-      alt="like"
-    />
-  )
-
   return (
     <li className="comment-items">
       <div className="special">
@@ -35,13 +23,25 @@ const CommentItem = props => {
       <p className="comment">{comment}</p>
       <div className="like-container">
         <button type="button" onClick={onChangeLikeImage}>
-          <img src={starImage} alt="like" />
+          {isLike ? (
+            <img
+              src="https://assets.ccbp.in/frontend/react-js/comments-app/liked-img.png"
+              alt="like"
+            />
+          ) : (
+            <img
+              src="https://assets.ccbp.in/frontend/react-js/comments-app/like-img.png"
+              alt="like"
+            />
+          )}
         </button>
-        <img
-          src="https://assets.ccbp.in/frontend/react-js/comments-app/delete-img.png"
-          alt="delete"
-          onClick={onDeleteComment}
-        />
+        <button type="button" data-testId="delete">
+          <img
+            src="https://assets.ccbp.in/frontend/react-js/comments-app/delete-img.png"
+            alt="delete"
+            onClick={onDeleteComment}
+          />
+        </button>
       </div>
     </li>
   )

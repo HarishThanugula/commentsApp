@@ -1,17 +1,7 @@
 import {Component} from 'react'
-import {v4 as uuidv4} from 'uuid'
+import {v4} from 'uuid'
 import './index.css'
 import CommentItem from '../CommentItem'
-
-const initialContainerBackgroundClassNames = [
-  'amber',
-  'blue',
-  'orange',
-  'emerald',
-  'teal',
-  'red',
-  'light-blue',
-]
 
 const initialCommentList = []
 
@@ -20,7 +10,6 @@ class Comments extends Component {
     name: '',
     comment: '',
     commentList: initialCommentList,
-    backGroundColor: initialContainerBackgroundClassNames,
     count: 0,
   }
 
@@ -36,7 +25,7 @@ class Comments extends Component {
     event.preventDefault()
     const {comment, name} = this.state
     const newComment = {
-      id: uuidv4,
+      id: v4(),
       name,
       comment,
       isLike: false,
@@ -62,18 +51,15 @@ class Comments extends Component {
 
   deleteComment = id => {
     const {commentList} = this.state
-    const filterComment = commentList.filter(
-      eachComment => eachComment.id !== id,
-    )
-    this.setState({commentList: filterComment})
+
+    this.setState({
+      commentList: commentList.filter(eachNumber => eachNumber.id !== id),
+    })
     this.setState(prevState => ({count: prevState.count - 1}))
   }
 
   render() {
-    const {name, comment, commentList, backGroundColor, count} = this.state
-    const colors = backGroundColor.map(eachColor =>({
-        return eachColor
-    })
+    const {name, comment, commentList, count} = this.state
 
     return (
       <div className="bg-container">
@@ -97,7 +83,9 @@ class Comments extends Component {
               placeholder="Your Comment"
               onChange={this.getChangeComment}
               value={comment}
-            ></textarea>
+            >
+              .
+            </textarea>
             <button className="add-comment-btn" type="submit">
               Add Comment
             </button>
@@ -119,7 +107,6 @@ class Comments extends Component {
               <CommentItem
                 commentItems={eachComment}
                 key={eachComment.id}
-                colors={colors}
                 onLikeComment={this.onLikeComment}
                 deleteComment={this.deleteComment}
               />
